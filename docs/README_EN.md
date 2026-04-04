@@ -6,7 +6,7 @@
 <p align="center">
   <a href="../README.md">简体中文</a> | <strong>English</strong>
 </p>
-<p align="center"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" /> <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" /> <img src="https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" /> <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" /></p>
+<p align="center"><img src="https://img.shields.io/badge/License-CNC--1.0-red.svg" /> <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" /> <img src="https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Vue-3-4FC08D?logo=vue.js&logoColor=white" /> <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" /> <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" /></p>
 
 <p align="center">Convert Gemini Business to OpenAI-compatible API with multi-account load balancing, image generation, video generation, multimodal capabilities, and built-in admin panel.</p>
 
@@ -14,7 +14,7 @@
 
 ## 📜 License & Disclaimer
 
-**License**: MIT License - See [LICENSE](../LICENSE) for details
+**License**: Cooperative Non-Commercial License (CNC-1.0) - See [LICENSE](../LICENSE) for details
 
 ### ⚠️ Prohibited Use & Anti-Abuse Policy
 
@@ -243,7 +243,7 @@ curl http://localhost:7860/v1/chat/completions \
 
 ## 📧 Email Provider Configuration
 
-The project supports 5 temporary email providers for automatic account registration. Switch and configure them in **Admin Panel → System Settings → Temp Email Provider**.
+The project supports 6 temporary email providers for automatic account registration. Switch and configure them in **Admin Panel → System Settings → Temp Email Provider**.
 
 ### Moemail (Default)
 
@@ -287,6 +287,17 @@ Cloudflare-based temporary email service, suitable for self-hosted or lightweigh
   - Email domain (`cfmail_domain`, optional, without `@`)
 - **Import format (optional)**: `cfmail----you@example.com----jwtToken`
   - The third field is the mailbox JWT token used to fetch verification codes.
+
+### Sample Mail
+
+Lightweight self-hosted temporary email based on Cloudflare Workers + D1. No API Key required; the email domain is determined by the Worker environment variable.
+
+- **Project**: [github.com/bestK/sample-mail](https://github.com/bestK/sample-mail)
+- **Admin Panel Path**: System Settings → Temp Email Provider = `samplemail`
+- **Configuration**:
+  - Sample Mail Worker URL (`samplemail_base_url`, required)
+  - SSL verification (`samplemail_verify_ssl`, enabled by default)
+- **Note**: Domain selection and API Key are not supported. The email domain is set via the `EMAIL_DOMAIN` environment variable in your Worker.
 
 > **Tip**: All email settings are configured in the admin panel. Microsoft email login is also handled through the admin panel.
 
